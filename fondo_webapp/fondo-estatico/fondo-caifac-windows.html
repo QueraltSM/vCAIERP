@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body style="background-image:url('fondo.png');background-size: cover;">
+    <main>
+        <section class="justify-content-center" style="color:#FFF;">
+            <div
+                style="display:inline-block;text-align:center;width:100%;  margin: 0;position: absolute;top: 40%;transform: translateY(-50%);">
+                <span style="font-family:Iconos;color:#FFF;font-size: 1000%;">G</span>
+                <h1><strong>Software caifac</strong></h1>
+                <div style="display:inline-block;text-align:center">
+                    <h5 text-center><a href="mailto:caifac@caisoft.es"
+                            style="color:#FFF;font-size:22px;">caifac@caisoft.es</a></h5>
+                </div>
+                <br><br>
+                <div id="panel"></div>
+            </div>
+            <div
+                style="display:inline-block;text-align:center;width:100%;position: absolute;bottom: 20px;left: 0;right: 0;">
+                <div style="float:left;padding-left:50px">
+                    <img src="logo-caisoft.png" width="250" />
+                    <h5 text-center>caisoft.es</h5>
+                </div>
+                <img src="logotipo.png" style="float:right;padding-right:50px" />
+            </div>
+        </section>
+    </main>
+
+    <script language="JavaScript">
+        function getQuerystring(key, default_) {
+            if (default_ == null)
+                default_ = "";
+            key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&amp;]" + key + "=([^&amp;#]*)");
+            var qs = regex.exec(window.location.href);
+            if (qs == null)
+                return default_;
+            else
+                return qs[1];
+        };
+
+        var mensaje = getQuerystring('error');
+        var version = getQuerystring('version');
+
+        if (mensaje === "e1") {
+            document.getElementById('panel').innerHTML =
+                '<div style="color:white;width:30%;text-align:center;margin:0 auto;background: rgba(255, 255, 255, 0.3);padding:30px;border-radius:20px;">' +
+                '<span style="font-size:20px;">Licencia en baja, contacta con <a href="mailto:comercial@caisoft.es" style="color:#FFF;">comercial@caisoft.es</a><p>Versión ' + version + '</p></span>' +
+                '</div>';
+        }
+        else if (mensaje === "e2") {
+            document.getElementById('panel').innerHTML =
+                '<div style="color:white;width:30%;text-align:center;margin:0 auto;background: rgba(255, 255, 255, 0.3);padding:30px;border-radius:20px;">' +
+                '<span style="font-size:20px;">Versión ' + version + '</span>' +
+                '</div>';
+        }
+        else if (mensaje === "e3") {
+            document.getElementById('panel').innerHTML =
+                '<div style="color:white;width:30%;text-align:center;margin:0 auto;background: rgba(255, 255, 255, 0.3);padding:30px;border-radius:20px;">' +
+                '<span style="font-size:18px;">¡Hola! Estoy teniendo dificultades en mi conexión con internet. No te preocupes, la mayor parte de mis opciones seguirán funcionando sin problemas y solo necesitarás ponerte en contacto con nuestro servicio de atención al cliente en caso de persistir esta situación.<p>¡Gracias por utilizar CAISOFT!</p><p>Versión ' + version + '</p></span>' +
+                '</div>';
+        }
+    </script>
+</body>
+
+</html>
